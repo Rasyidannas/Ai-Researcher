@@ -39,6 +39,14 @@ Token: `mysecret`
 
 Files created in `~/work/` inside the container sync to `./work/` on the host.
 
+**Note:** The container user runs as UID `1001` but the host `work/` directory is owned by UID `1000`. If you get `Permission denied: Untitled.ipynb`, fix with:
+
+```bash
+chmod o+w work
+```
+
+Or match UIDs by setting `NB_UID=1000` and `NB_GID=1000` in `docker-compose.yml`.
+
 ## Rebuild
 
 ```bash
