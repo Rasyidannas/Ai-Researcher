@@ -1,0 +1,23 @@
+services:
+  jupyter:
+    build: .
+    container_name: jupyter-notebook
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./work:/home/rasyid/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=mysecret
+      - NB_USER=rasyid
+      - NB_UID=1001
+      - NB_GID=1001
+      - CHOWN_HOME=yes
+    restart: unless-stopped
+    # deploy:
+            # resources:
+            # reservations:
+            # devices:
+            # - driver: nvidia
+            # count: all
+            # capabilities: [gpu]
