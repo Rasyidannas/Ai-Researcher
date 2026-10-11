@@ -1,7 +1,7 @@
 services:
   jupyter:
     build: .
-    container_name: jupyter-notebook
+    container_name: ai-researcher
     ports:
       - "8889:8888"
     volumes:
